@@ -2,13 +2,13 @@
 
 #include <string.h> // memset, memcpy, memcmp
 
-#if PLATFORM_MAC || PLATFORM_LINUX
-	#include <sys/mman.h>
-#endif
-
 #include "platform_definitions.h"
 #include "standard_includes.h"
 #include "system.h"
+
+#if PLATFORM_MAC || PLATFORM_LINUX
+	#include <sys/mman.h>
+#endif
 
 // == ACQUISITION =================================================================================
 
