@@ -33,9 +33,8 @@ INCLUDE_FLAGS=()
 for d in "${INC_DIRS[@]}"; do INCLUDE_FLAGS+=( -I"$d" ); done
 
 CFLAGS=( -std=c11 -O2 -g -Wall -Wextra -Wpedantic -arch "$ARCH" )
-LDFLAGS=()
 
 echo "Building macOS ${ARCH} (Apple Clang)..."
 echo "Sources: ${#SOURCES[@]}  Include dirs: ${#INC_DIRS[@]}"
 
-clang "${CFLAGS[@]}" "${INCLUDE_FLAGS[@]}" "${SOURCES[@]}" -o "$OUTDIR/app" "${LDFLAGS[@]}"
+clang "${CFLAGS[@]}" "${INCLUDE_FLAGS[@]}" "${SOURCES[@]}" -o "$OUTDIR/app"
