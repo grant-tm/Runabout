@@ -2,6 +2,10 @@
 
 #include <string.h> // memset, memcpy, memcmp
 
+#if PLATFORM_MAC || PLATFORM_LINUX
+	#include <sys/mman.h>
+#endif
+
 #include "platform_definitions.h"
 #include "standard_includes.h"
 #include "system.h"
@@ -31,7 +35,7 @@ void *Memory_Reserve (usize size)
 }
 
 #else
-#error "[base.c] Memory_Reserve(...) is not implemented on this platform."
+#error "[memory.c] Memory_Reserve(...) is not implemented on this platform."
 #endif
 
 // -- Memory_Release ------------------------------------------------------------------------------
@@ -50,7 +54,7 @@ void Memory_Release (void *address, usize size)
 }
 
 #else
-#error "[base.c] Memory_Release(...) is not implemented on this platform."
+#error "[memory.c] Memory_Release(...) is not implemented on this platform."
 #endif
 
 // -- Memory_Commit -------------------------------------------------------------------------------
@@ -90,7 +94,7 @@ b32 Memory_Commit (void *address, usize size)
 }
 
 #else
-#error "[base.c] Memory_Commit(...) is not implemented on this platform."
+#error "[memory.c] Memory_Commit(...) is not implemented on this platform."
 #endif
 
 // -- Memory_Decommit -----------------------------------------------------------------------------
@@ -143,7 +147,7 @@ b32 Memory_Decommit (void *address, usize size)
 }
 
 #else
-#error "[base.c] Memory_Decommit(...) is not implemented on this platform."
+#error "[memory.c] Memory_Decommit(...) is not implemented on this platform."
 #endif
 
 // == OPERATIONS ==================================================================================
@@ -304,7 +308,7 @@ usize Memory_GetOSPageSize (void)
 }
 
 #else
-#error "[base.c] Memory_GetOSPageSize(...) is not implemented on this platform."	
+#error "[memory.c] Memory_GetOSPageSize(...) is not implemented on this platform."	
 #endif
 
 // -- Memory_GetOSPageRange -----------------------------------------------------------------------

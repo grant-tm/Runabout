@@ -23,7 +23,7 @@ i32  Memory_Compare (const void *address_a, const void *address_b, usize size);
 uptr Memory_AlignForward (uptr address, usize alignment);
 uptr Memory_AlignForwardToPowerOfTwo (uptr address, uptr alignment);
 uptr Memory_AlignBackwardToPowerOfTwo (uptr address, uptr alignment);
-usize Memory_GetPageSize();
+usize Memory_GetPageSize (void);
 usize Memory_GetOSPageRange (void *address, usize size, uptr *start_page_out, uptr *end_page_out);
 
 #endif // MEMORY_H
