@@ -27,7 +27,7 @@ set "RSP=%OUTDIR%\build.rsp"
 	echo /std:c11
 	echo /D_CRT_SECURE_NO_WARNINGS
 	echo /Fe:"%OUTDIR%\app.exe"
-	echo /Fo:"%OUTDIR%"
+	echo /Fo:"%OUTDIR%\\"
 )
 
 REM ------------------ Include directories ------------------
