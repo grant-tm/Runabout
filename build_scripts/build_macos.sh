@@ -4,14 +4,13 @@ set -euo pipefail
 ARCH="${1:-arm64}"  # arm64 or x86_64
 
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
-OUTDIR="$ROOT/Builds/macos_${ARCH}"
+OUTDIR="$ROOT/builds/macos_${ARCH}"
 mkdir -p "$OUTDIR"
 
 EXCLUDES=(
-  "$ROOT/GUI/Shaders"
-  "$ROOT/Builds"
+  "$ROOT/builds"
   "$ROOT/.git"
-  "$ROOT/BuildScripts"
+  "$ROOT/build_scripts"
 )
 
 PRUNE=()

@@ -2,14 +2,13 @@
 set -euo pipefail
 
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
-OUTDIR="$ROOT/Builds/linux_x64"
+OUTDIR="$ROOT/builds/linux_x64"
 mkdir -p "$OUTDIR"
 
 EXCLUDES=(
-  "$ROOT/GUI/Shaders"
-  "$ROOT/Builds"
+  "$ROOT/builds"
   "$ROOT/.git"
-  "$ROOT/BuildScripts"
+  "$ROOT/build_scripts"
 )
 
 # Build prune args for find
