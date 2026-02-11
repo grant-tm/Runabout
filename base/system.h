@@ -3,6 +3,27 @@
 
 #include <stdlib.h>
 
+#include "platforms.h"
+
+// -- Platform Specific Standards -----------------------------------------------------------------
+
+// Windows
+#if PLATFORM_WINDOWS
+	#define NOMINMAX
+    #define WIN32_LEAN_AND_MEAN
+    #include <windows.h>
+#endif
+
+// Apple
+#if PLATFORM_MAC
+	#include <unistd.h>
+#endif
+
+// Linux
+#if PLATFORM_LINUX
+    #include <unistd.h>
+#endif
+
 // -- Asserts -------------------------------------------------------------------------------------
 
 #ifndef DEBUG

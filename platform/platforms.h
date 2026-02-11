@@ -1,5 +1,5 @@
-#ifndef PLATFORM_DEFINITIONS_H
-#define PLATFORM_DEFINITIONS_H
+#ifndef PLATFORMS_H
+#define PLATFORMS_H
 
 // Windows
 #if defined(_WIN32) || defined(_WIN64)
@@ -26,4 +26,4 @@
     #error "Unsupported or multiple platforms detected"
 #endif
 
-#endif // PLATFORM_DEFINITIONS_H
+#endif // PLATFORMS_H

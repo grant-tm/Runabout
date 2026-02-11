@@ -2,8 +2,7 @@
 
 #include <string.h> // memset, memcpy, memcmp
 
-#include "platform_definitions.h"
-#include "standard_includes.h"
+#include "platforms.h"
 #include "system.h"
 
 #if PLATFORM_MAC || PLATFORM_LINUX
