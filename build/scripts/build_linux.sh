@@ -1,30 +1,19 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-ROOT="$(cd "$(dirname "$0")/.." && pwd)"
-OUTDIR="$ROOT/builds/linux_x64"
+ROOT="$(cd "$(dirname "$0")/../.." && pwd)"
+
+OUTDIR="$ROOT/build/builds/linux_x64"
 mkdir -p "$OUTDIR"
-
-EXCLUDES=(
-  "$ROOT/builds"
-  "$ROOT/.git"
-  "$ROOT/build_scripts"
-)
-
-# Build prune args for find
-PRUNE=()
-for ex in "${EXCLUDES[@]}"; do
-  PRUNE+=( -path "$ex" -prune -o )
-done
 
 INC_DIRS=()
 while IFS= read -r d; do INC_DIRS+=("$d"); done < <(
-  find "$ROOT" "${PRUNE[@]}" -type d -print | sort -u
+	find "$ROOT/source" -type d -print | sort -u
 )
 
 SOURCES=()
 while IFS= read -r f; do SOURCES+=("$f"); done < <(
-  find "$ROOT" "${PRUNE[@]}" -type f -name "*.c" -print | sort -u
+	find "$ROOT/source" -type f -name "*.c" -print | sort -u
 )
 
 INCLUDE_FLAGS=()

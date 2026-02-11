@@ -3,29 +3,18 @@ set -euo pipefail
 
 ARCH="${1:-arm64}"  # arm64 or x86_64
 
-ROOT="$(cd "$(dirname "$0")/.." && pwd)"
-OUTDIR="$ROOT/builds/macos_${ARCH}"
+ROOT="$(cd "$(dirname "$0")/../.." && pwd)"
+OUTDIR="$ROOT/build/builds/macos_${ARCH}"
 mkdir -p "$OUTDIR"
-
-EXCLUDES=(
-  "$ROOT/builds"
-  "$ROOT/.git"
-  "$ROOT/build_scripts"
-)
-
-PRUNE=()
-for ex in "${EXCLUDES[@]}"; do
-  PRUNE+=( -path "$ex" -prune -o )
-done
 
 INC_DIRS=()
 while IFS= read -r d; do INC_DIRS+=("$d"); done < <(
-  find "$ROOT" "${PRUNE[@]}" -type d -print | sort -u
+  find "$ROOT/source" -type d -print | sort -u
 )
 
 SOURCES=()
 while IFS= read -r f; do SOURCES+=("$f"); done < <(
-  find "$ROOT" "${PRUNE[@]}" -type f -name "*.c" -print | sort -u
+  find "$ROOT/source" -type f -name "*.c" -print | sort -u
 )
 
 INCLUDE_FLAGS=()
